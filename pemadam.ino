@@ -8,6 +8,9 @@
 #define TRIG_PIN 12
 #define ECHO_PIN 13
 
+const int MOVE_TIME = 1500;
+const int TURN_TIME = 700;
+
 Servo servo;
 int state = 0;
 
@@ -102,43 +105,43 @@ void travelling(){
 
     // longer time to travel
     if(state == 8 || state == 10){
-      delay(3000);
+      delay(MOVE_TIME * 2);
     }
     else {
-      delay(2000);
+      delay(MOVE_TIME);
     }
   }
   else if(state == 1){
     turnRight();
     state += 1;
-    delay(500);
+    delay(TURN_TIME);
   }
   else if(state == 3){
     turnLeft();
     state += 1;
-    delay(500);
+    delay(TURN_TIME);
   }
   else if(state == 5){
     turnRight();
     state += 1;
-    delay(500);
+    delay(TURN_TIME);
   }
   else if(state == 7){
     turnRight();
     state += 1;
-    delay(500);
+    delay(TURN_TIME);
   }
   else if(state == 9){
     turnRight();
     state += 1;
-    delay(500);
+    delay(TURN_TIME);
   }
   else if(state == 11){
     turnRight();
 
     // back to initial state
     state = 0;
-    delay(500);
+    delay(TURN_TIME);
   }
 }
 
